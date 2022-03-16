@@ -1,0 +1,42 @@
+/* css for div in which card slider is placed in home.jsx
+.card-slider-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+} */
+
+.main-slider-container{
+  width: 90%;
+  height: max-content;
+  background: grey;
+  position: relative;
+}
+
+.card-slider{
+  width: 100%;
+  height: max-content;
+  display: flex;
+  white-space: nowrap;
+  /* flex-wrap:nowrap; */
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  justify-content: center;
+}
+
+.card-slider::-webkit-scrollbar{
+  display: none;
+}
+
+.slider-card{
+  min-width: 32rem;
+  height: 28rem;
+  background: wheat;
+  border-radius: 10px;
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+
+}

@@ -1,0 +1,28 @@
+.product-card-image{
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.image-container{
+  height: 30rem;
+}
+
+.vertical-card{
+  max-width: 280px;
+  min-width: 280px;
+}
+
+.favorite-btn{
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  cursor: pointer;
+  /* background: chartreuse; */
+  border-radius: 50%;
+  color: black;
+}
+
+.primary-card-badge{
+  color: rgba(255, 255, 255, 0.952);
+}
