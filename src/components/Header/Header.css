@@ -2,10 +2,6 @@
   padding:unset;
 }
 
-.navbar-search-bar{
-  background-color: pink;
-}
-
 .search-bar-container{
   width: 50%;
   border: 1px solid #D1D1D1;
@@ -38,7 +34,6 @@
 
 .badge-icon i{
   font-size: 3.4rem;
-  /* color: #D1D1D1; */
 }
 
 .badge-button-text{
