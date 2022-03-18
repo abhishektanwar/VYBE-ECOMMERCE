@@ -48,7 +48,7 @@ const ImageSlider = (props) => {
               <img
                 src={slide.image}
                 alt="hero-image"
-                className="slider-image"
+                className="slider-image responsive-image image-container"
               />
             )}
           </div>
