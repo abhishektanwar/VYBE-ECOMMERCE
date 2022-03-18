@@ -1,0 +1,15 @@
+.product-listing-header{
+	/* width: 100vw; */
+	height: 160px;
+	background-color: var(--bg-color-primary);
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	padding-left: 10rem;
+}
+
+@media screen and (max-width:1024px){
+  .product-listing-header{
+    padding-left: 2rem;
+  }
+}

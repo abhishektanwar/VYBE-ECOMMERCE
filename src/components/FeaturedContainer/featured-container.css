@@ -1,0 +1,18 @@
+.featured-container {
+  display: grid;
+  grid-template-columns: repeat(6, 200px);
+  grid-column-gap: 10px;
+  grid-row-gap: 60px;
+  justify-content: center;
+  justify-items: center;
+}
+
+.featured-container-header {
+  text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  .category-container {
+    grid-template-columns: repeat(2, 180px);
+  }
+}

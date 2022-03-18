@@ -6,12 +6,15 @@ import Header from "../../components/Header";
 import ImageSlider from "../../components/ImageSlider";
 import { SliderData } from "../../components/ImageSlider/SliderData";
 import "./home.css";
+import {Link} from 'react-router-dom'
 const Home = () => {
   return (
     <>
       {/* <nav className="nav-bar shadow-box" id="my-nav-bar">
         <Header />
       </nav> */}
+      <button><Link to="/products" >Products page</Link></button>
+      
       <ImageSlider sliderData={SliderData} />
       <FeaturedContainer featuredContainerTitle={'Featured Categories'} />
 
