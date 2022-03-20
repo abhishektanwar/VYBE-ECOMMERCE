@@ -6,15 +6,15 @@ const ImageSlider = (props) => {
   const {sliderData} = props;
   const [current, setCurrent] = useState(0);
 
-  // TODO fix me
-  // useEffect(()=>{
-  //   const clearInterval=setInterval(()=>{
-  //     setCurrent(current === length-1 ? 0 : current + 1)
-  //   },4000);
-  //   return ()=> {
-  //     clearInterval();
-  //   }
-  // },[current])
+
+  useEffect(()=>{
+    const clearIntervall=setInterval(()=>{
+      setCurrent(current === sliderData.length-1 ? 0 : current + 1)
+    },4000);
+    return ()=> {
+      clearInterval(clearIntervall);
+    }
+  },[current])
 
   const nextSlide = () => {
     setCurrent(current === sliderData.length - 1 ? 0 : current + 1);

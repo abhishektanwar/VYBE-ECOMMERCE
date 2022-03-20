@@ -57,6 +57,14 @@
   color:var(--primary-color)
 }
 
+.vertical-card .card-text-container{
+  width: unset;
+  padding: 0.6rem 1.6rem;
+}
+
+/* .card-text-container{
+} */
+
 @media screen and (max-width:480px){
   .horizontal-card-text-container{
     display: flex;

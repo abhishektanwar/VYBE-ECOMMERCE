@@ -73,7 +73,7 @@ const ProductCard = (props) => {
           </div>
           {!cartActionBtnContainer ? 
           <div
-            class="card-action-btn-container horizontal-card-action-btn-container "
+            class="card-action-btn-container horizontal-card-action-btn-container"
             style={{ marginLeft: "auto" }}
           >
             <button class="margin-trb-16 btn btn-filled-primary">
@@ -109,7 +109,6 @@ const ProductCard = (props) => {
       </div>
 
       <div class="card-text-container margin-top-20">
-        <div>
           <div class="flex-row flex-align-item-center">
             <h6 class="text-medium-weight body-typo-md">{title}</h6>
             <button href="#" class="favorite-btn">
@@ -118,7 +117,6 @@ const ProductCard = (props) => {
               </span>
             </button>
           </div>
-        </div>
         <div class="text-container-description">
           <p class="typo-xs text-bold-weight">
             {`${price} `}
