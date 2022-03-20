@@ -4,6 +4,20 @@
   object-fit: contain;
 }
 
+.horizontal-card{
+  width: 100%;
+}
+
+.horizontal-card-text-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.horizontal-card-action-btn-container{
+  display: flex;
+  flex-direction: column;
+}
+
 .image-container{
   height: 30rem;
 }
@@ -25,4 +39,17 @@
 
 .primary-card-badge{
   color: rgba(255, 255, 255, 0.952);
+}
+
+@media screen and (max-width:480px){
+  .horizontal-card-text-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .horizontal-card-action-btn-container{
+    display: flex;
+    flex-direction: row;
+  }
+  
 }

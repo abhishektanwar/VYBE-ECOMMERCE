@@ -23,13 +23,11 @@ const ProductCard = (props) => {
           <span class="badge primary-card-badge">New Arrival</span>
         </div>
 
-        <div class="card-text-container flex-row">
+        <div class="card-text-container horizontal-card-text-container">
           <div className="flex-column">
             <div>
               <h6 class="text-light-weight">ONEAR 100 HEADPHONES BLACK</h6>
               <p class="body-typo-sm">
-                {/* Advance Noise Canceling, Ambient Sound, Listening Optimizer */}
-                {/* <br /> */}
                 <small class="body-typo-xs text-light-weight secondary-text-color">
                   Referende Id:7837A7
                 </small>
@@ -51,8 +49,8 @@ const ProductCard = (props) => {
           </div>
 
           <div
-            class="card-action-btn-container flex-column"
-            style={{ marginLeft: "auto" }}
+            class="card-action-btn-container horizontal-card-action-btn-container "
+            style={{ marginLeft: "auto"}}
           >
             <button class="margin-trb-16 btn btn-filled-primary">
               Add to Cart
