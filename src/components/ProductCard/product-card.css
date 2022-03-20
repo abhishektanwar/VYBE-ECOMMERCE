@@ -41,6 +41,22 @@
   color: rgba(255, 255, 255, 0.952);
 }
 
+.quantity-selector > select{
+  border: none;
+  background-color: transparent;
+  margin-right: 3rem;
+  cursor: pointer;
+}
+
+.cart-action-btn-container{
+  display: flex;
+  align-items: center;
+}
+
+.cart-action-btn-container .secondary-button{
+  color:var(--primary-color)
+}
+
 @media screen and (max-width:480px){
   .horizontal-card-text-container{
     display: flex;

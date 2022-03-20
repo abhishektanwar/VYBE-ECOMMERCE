@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Header/Button";
 import "./product-card.css";
 const ProductCard = (props) => {
   const {
@@ -9,6 +10,7 @@ const ProductCard = (props) => {
     actualPrice,
     discountPercentage,
     variant,
+    cartActionBtnContainer,
   } = props;
   if (variant === "horizontal") {
     return (
@@ -46,11 +48,33 @@ const ProductCard = (props) => {
                 )}
               </p>
             </div>
+            {cartActionBtnContainer ? 
+            <div className="cart-action-btn-container">
+              <div className="quantity-selector">
+                <label for="quantity" className="body-typo-sm">
+                  Qty :{" "}
+                </label>
+                <select name="quantity" autoComplete="off" id="quantity">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>{" "}
+              |
+              <Button
+                buttonText={"Delete"}
+                buttonStyle="btn-filled-primary secondary-button body-typo-sm"
+              /> | 
+              <Button
+                buttonText={"Move to wishlist"}
+                buttonStyle="btn-filled-primary secondary-button body-typo-sm"
+              />
+            </div> : null }
           </div>
-
+          {!cartActionBtnContainer ? 
           <div
             class="card-action-btn-container horizontal-card-action-btn-container "
-            style={{ marginLeft: "auto"}}
+            style={{ marginLeft: "auto" }}
           >
             <button class="margin-trb-16 btn btn-filled-primary">
               Add to Cart
@@ -58,7 +82,7 @@ const ProductCard = (props) => {
             <button class="margin-trb-16 btn btn-outline-primary">
               Delete
             </button>
-          </div>
+          </div> : null}
         </div>
       </div>
     );
