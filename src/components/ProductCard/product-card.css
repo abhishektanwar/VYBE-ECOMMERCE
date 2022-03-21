@@ -37,6 +37,10 @@
   color: black;
 }
 
+.width-100{
+  width: 100%;
+}
+
 .primary-card-badge{
   color: rgba(255, 255, 255, 0.952);
 }
@@ -62,8 +66,9 @@
   padding: 0.6rem 1.6rem;
 }
 
-/* .card-text-container{
-} */
+.horizontal-card .image-container{
+  margin: auto 0.6rem;
+}
 
 @media screen and (max-width:480px){
   .horizontal-card-text-container{

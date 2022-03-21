@@ -18,8 +18,20 @@
 	column-gap: 3rem;
 }
 
-.total-ticket-container .card-text-container{
+.border-bottom{
+	border-bottom: 2px solid var(--border-color);
+}
+
+.margin-top-bottom-10{
+	margin: 10px 0;
+}
+
+/* .total-ticket-container .card-text-container{
 	width: 100%;
+} */
+
+.total-ticket-container{
+  margin-top: 1.6rem;
 }
 
 .total-ticket-container .ticket-container-item{

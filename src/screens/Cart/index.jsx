@@ -6,58 +6,61 @@ const Cart = () => {
 
   return (
     <div>
-      <div class="cart-container flex-row flex-justify-content-center">
-		<div class="product-list-container flex-column">
-			<ProductCard cartActionBtnContainer={true} imagePath={imageUrl} variant="horizontal" />
+      <div className="cart-container flex-row flex-justify-content-center">
+		<div className="product-list-container flex-column">
+			<ProductCard cartActionBtnContainer={false} imagePath={imageUrl} variant="horizontal" badgeText={'New Arrival'} title = {'One ear 100 headphones black'} price={1890} actualPrice={2099} discountPercentage={10} />
+			<ProductCard cartActionBtnContainer={false} imagePath={imageUrl} variant="horizontal" badgeText={'New Arrival'} title = {'One ear 100 headphones black'} price={1890} actualPrice={2099} discountPercentage={10} />
+			<ProductCard cartActionBtnContainer={false} imagePath={imageUrl} variant="horizontal" badgeText={'New Arrival'} title = {'One ear 100 headphones black'} price={1890} actualPrice={2099} discountPercentage={10} />
+			<ProductCard cartActionBtnContainer={false} imagePath={imageUrl} variant="horizontal" badgeText={'New Arrival'} title = {'One ear 100 headphones black'} price={1890} actualPrice={2099} discountPercentage={10} />
 
 		</div>
-		<div class="total-ticket-container flex-column">
-			<div class="card-text-container flex-column ">
-				<div class="border-bottom">
-					<p class="typo-md text-bold-weight margin-bottom-10">
+		<div className="total-ticket-container flex-column">
+			<div className="card-text-container flex-column ">
+				<div className="border-bottom">
+					<p className="typo-md text-bold-weight margin-bottom-10">
 						Price Details
 					</p>
 				</div>
 				
-				<div class="text-container-description flex-column border-bottom">
-					<div class="flex-row ticket-container-item margin-top-bottom-10">
-						<p class="typo-md text-light-weight margin-top-bottom-10">
+				<div className="text-container-description flex-column border-bottom">
+					<div className="flex-row ticket-container-item margin-top-bottom-10">
+						<p className="typo-md text-light-weight margin-top-bottom-10">
 							Price (2 items)
 						</p>
-						<p class="typo-md text-light-weight margin-top-bottom-10">
+						<p className="typo-md text-light-weight margin-top-bottom-10">
 							₹ 4198
 						</p>
 					</div>
-					<div class="flex-row ticket-container-item margin-top-bottom-10">
-						<p class="typo-md text-light-weight margin-top-bottom-10">
+					<div className="flex-row ticket-container-item margin-top-bottom-10">
+						<p className="typo-md text-light-weight margin-top-bottom-10">
 							Discount
 						</p>
-						<p class="typo-md text-light-weight margin-top-bottom-10">
+						<p className="typo-md text-light-weight margin-top-bottom-10">
 							-₹ 418
 						</p>
 					</div>
-					<div class="flex-row ticket-container-item margin-top-bottom-10">
-						<p class="typo-md text-light-weight margin-top-bottom-10">
+					<div className="flex-row ticket-container-item margin-top-bottom-10">
+						<p className="typo-md text-light-weight margin-top-bottom-10">
 							Delivery charges
 						</p>
-						<p class="typo-md text-light-weight margin-top-bottom-10">
+						<p className="typo-md text-light-weight margin-top-bottom-10">
 							₹ 499
 						</p>
 					</div>
 				</div>
-				<div class="flex-row ticket-container-item margin-top-bottom-10 border-bottom">
-					<p class="typo-md text-bold-weight margin-top-bottom-10">
+				<div className="flex-row ticket-container-item margin-top-bottom-10 border-bottom">
+					<p className="typo-md text-bold-weight margin-top-bottom-10">
 						TOTAL AMOUNT
 					</p>
-					<p class="typo-md text-bold-weight margin-top-bottom-10">
+					<p className="typo-md text-bold-weight margin-top-bottom-10">
 						₹ 4279
 					</p>
 				</div>
-				<p class="typo-sm text-light-weight margin-top-bottom-10">
+				<p className="typo-sm text-light-weight margin-top-bottom-10">
 					You will save ₹ 418 on this order.
 				</p>
-				<div class="card-action-btn-container margin-top-16">
-					<button class="btn btn-filled-primary text-bold-weight">
+				<div className="card-action-btn-container margin-top-16">
+					<button className="btn btn-filled-primary text-bold-weight">
 						PLACE ORDER
 					</button>
 				</div>
