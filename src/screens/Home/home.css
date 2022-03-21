@@ -1,0 +1,5 @@
+.slider-card-container{
+  display: flex;
+  justify-content: space-around;
+  min-width: 52rem;
+}

@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../assets/images/TREK-SHARK-Logo.svg";
 const Logo = () => {
   return (
     <div className="nav-logo nav-section-items">
