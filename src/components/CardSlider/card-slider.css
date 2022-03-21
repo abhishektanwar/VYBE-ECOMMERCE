@@ -1,13 +1,3 @@
-/* css for div in which card slider is placed in home.jsx
-.card-slider-container{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-} */
-
 .main-slider-container{
   width: 90%;
   height: max-content;
@@ -19,7 +9,6 @@
   height: max-content;
   display: flex;
   white-space: nowrap;
-  /* flex-wrap:nowrap; */
   overflow-x: scroll;
   scroll-behavior: smooth;
   justify-content: center;

@@ -4,11 +4,6 @@ const ProductCard = (props) => {
   
   const {imagePath,badgeText,title,price,actualPrice,discountPercentage} = props;
   return (
-    // <div className='product-card-container'>
-    //   <div className="product-card-image">
-    //     <img src={imageUrl} alt="product-image" />
-    //   </div>
-    // </div>
     <div class="vertical-card flex-column margin-trb-20">
 						<div class="image-container badge-container">
 							<img src={imagePath} loading="lazy" alt="product-image"
