@@ -16,6 +16,7 @@
 .horizontal-card-action-btn-container{
   display: flex;
   flex-direction: column;
+  margin-left: auto;
 }
 
 .image-container{

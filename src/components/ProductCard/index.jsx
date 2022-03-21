@@ -50,7 +50,6 @@ const ProductCard = (props) => {
 
           <div
             class="card-action-btn-container horizontal-card-action-btn-container "
-            style={{ marginLeft: "auto"}}
           >
             <button class="margin-trb-16 btn btn-filled-primary">
               Add to Cart
