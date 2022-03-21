@@ -1,8 +1,11 @@
-import React,{useRef} from 'react'
+import React,{useContext, useRef} from 'react'
+import { AuthDialogContext } from '../../Contexts/AuthDialogContext'
+import { useAuthDialog } from '../../Contexts/AuthDialogContext/useAuthDialog'
 import './modal-wrapper.css'
-const ModalWrapper = ({showModal,setShowModal}) => {
+const ModalWrapper = () => {
   const modalRef = useRef()
-
+  const {showModal,setShowModal} = useContext(AuthDialogContext);
+  // const {showModal,setShowModal} = useAuthDialog();
   const closeModal = (e) => {
     if(modalRef.current === e.target){
       setShowModal(false)

@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthDialogContext } from "../../Contexts/AuthDialogContext";
+import { useAuthDialog } from "../../Contexts/AuthDialogContext/useAuthDialog";
 import BadgeIconButton from "./BadgeIconButton";
 import Button from "./Button";
 import Logo from "./Logo";
 import SearchBar from "./SearchBar";
 
-const Header = ({showModal,setShowModal}) => {
+const Header = () => {
+  const {showModal,setShowModal} = useContext(AuthDialogContext);
+  // const 
   return (
     <>
       <Logo />
