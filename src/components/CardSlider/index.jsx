@@ -30,9 +30,6 @@ const CardSlider = (props) => {
       <div className="card-slider" ref={ref} >
         {[1,2,3,4,5,6,7,8].map((slide,index)=>{
           return (
-            // <div className="slider-card">
-
-            // </div>
             <ProductCard imagePath={imageUrl} badgeText={'New Arrival'} title = {'One ear 100 headphones black'} price={1890} actualPrice={2099} discountPercentage={10} />
           )
         })}
