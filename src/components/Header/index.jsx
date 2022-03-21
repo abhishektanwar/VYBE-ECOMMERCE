@@ -14,9 +14,6 @@ const Header = () => {
           badgeIconButtonWrapper={"badge-icon-button-wrapper"}
           badgeNumber={2}
           icon={"far fa-heart"}
-          onClick={() => {
-            console.log("a");
-          }}
         />
 
         <BadgeIconButton
