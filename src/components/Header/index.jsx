@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import BadgeIconButton from "./BadgeIconButton";
 import Button from "./Button";
 import Logo from "./Logo";
 import SearchBar from "./SearchBar";
 
-const Header = () => {
+const Header = ({showModal,setShowModal}) => {
   return (
     <>
       <Logo />
@@ -26,7 +26,7 @@ const Header = () => {
         <Button
           buttonText={"Login"}
           buttonStyle={"headerButton typo-sm"}
-          onClick={() => {}}
+          onClick={() => setShowModal(true)}
         />
       </div>
     </>
