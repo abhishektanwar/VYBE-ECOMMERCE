@@ -1,8 +1,21 @@
 import React from "react";
+import BadgeIconButton from "../Header/BadgeIconButton";
+import ProductCard from "../ProductCard";
 import "./filter-bar.css";
+
+const StarRating = () => {
+  return [...Array(4)].map((item, index) => (
+    <label className="radio-container">
+      <input type="radio" name="key" value="value" />
+      <span>{4-index} Stars & above</span>
+    </label>
+  ));
+};
 const FilterBar = () => {
+  const imageUrl='https://picsum.photos/200/300';
 
   return (
+    <div className="grid-container-skleton">
       <div className="filter-bar flex-column" id="filter-side-bar">
         <div className="sidebar-toggle-button">
           <h2 className="typo-sm sidebar-title typo-lg">FILTERS</h2>
@@ -72,22 +85,7 @@ const FilterBar = () => {
           </div>
           <div className="filter-type flex-column margin-top-16">
             <h3 className="text-bold-weight">Rating</h3>
-            <label className="radio-container">
-              <input type="radio" name="key" value="value" />
-              <span>4 Stars & above</span>
-            </label>
-            <label className="radio-container">
-              <input type="radio" name="key" value="value" />
-              <span>3 Stars & above</span>
-            </label>
-            <label className="radio-container">
-              <input type="radio" name="key" value="value" />
-              <span>2 Stars & above</span>
-            </label>
-            <label className="radio-container">
-              <input type="radio" name="key" value="value" />
-              <span>1 Stars & above</span>
-            </label>
+						<StarRating />
           </div>
           <div className="filter-type flex-column margin-top-16">
             <h3 className="text-bold-weight">Sort by</h3>
@@ -102,6 +100,23 @@ const FilterBar = () => {
           </div>
         </div>
       </div>
+      <section className="products-listing">
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
+          (slide, index) => {
+            return (
+              <ProductCard
+                imagePath={imageUrl}
+                badgeText={"New Arrival"}
+                title={"One ear 100 headphones black"}
+                price={1890}
+                actualPrice={2099}
+                discountPercentage={10}
+              />
+            );
+          }
+        )}
+      </section>
+    </div>
   );
 };
 

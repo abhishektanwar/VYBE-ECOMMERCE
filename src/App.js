@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import ProductListing from './screens/ProductListing'
 import Wishlist from './screens/Wishlist'
+import Cart from "./screens/Cart";
 
 import { AuthDialogProvider } from "./Contexts/AuthDialogContext";
 import Login from "./components/Authentication/Login";
@@ -22,7 +23,9 @@ function App() {
           <Routes>
             <Route path="/" exact element={<Home />} />
 						<Route path="/products" exact element={<ProductListing />} />
-					<Route path="/wishlist" exact element={<Wishlist />} />
+						<Route path="/wishlist" exact element={<Wishlist />} />
+						<Route path="/cart" exact element={<Cart />} />
+
           </Routes>
         </AuthDialogProvider>
       </Router>
