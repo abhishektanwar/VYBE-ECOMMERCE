@@ -1,17 +1,17 @@
 import React, { useContext, useState } from "react";
 import { AuthDialogContext } from "../../Contexts/AuthDialogContext";
 import { useAuthDialog } from "../../Contexts/AuthDialogContext/useAuthDialog";
+import { useModal } from "../../Contexts/ModalContext";
 import BadgeIconButton from "./BadgeIconButton";
 import Button from "./Button";
 import Logo from "./Logo";
 import SearchBar from "./SearchBar";
 
 const Header = () => {
-  const {showModal,setShowModal,authType,setAuthType} = useContext(AuthDialogContext);
-  // const {showModal,setShowModal,authType,setAuthType} = useAuthDialog();
-  console.log(showModal,setShowModal);
+  const {setAuthType} = useContext(AuthDialogContext);
+  const {showModal} = useModal()
   const handleLoginBtnClick = () => {
-    setShowModal(true);
+    showModal();
     setAuthType('login')
   }
   return (

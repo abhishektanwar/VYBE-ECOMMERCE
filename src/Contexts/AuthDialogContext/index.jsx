@@ -8,9 +8,9 @@ export const AuthDialogContext = createContext({showModal:false,setShowModal:()=
 
 export const AuthDialogProvider = (props) => {
   // const [showModal,setShowModal] = useState(false)
-  const {showModal,setShowModal,authType,setAuthType} = useAuthDialog();
+  const {authType,setAuthType} = useAuthDialog();
   return (
-    <AuthDialogContext.Provider value={{showModal,setShowModal,authType,setAuthType}} >
+    <AuthDialogContext.Provider value={{authType,setAuthType}} >
       <ModalWrapper >{authType==='login' ? <Login /> : <SignUp />}</ModalWrapper>
       {props.children}
     </AuthDialogContext.Provider>
