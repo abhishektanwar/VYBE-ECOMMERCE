@@ -12,6 +12,7 @@ import Cart from "./screens/Cart";
 import { AuthDialogProvider } from "./Contexts/AuthDialogContext";
 import Login from "./components/Authentication/Login";
 import { ModalProvider } from "./Contexts/ModalContext";
+import MockmanEs from 'mockman-js';
 function App() {
   return (
     <div className="App">
@@ -27,6 +28,7 @@ function App() {
               <Route path="/products" exact element={<ProductListing />} />
               <Route path="/wishlist" exact element={<Wishlist />} />
               <Route path="/cart" exact element={<Cart />} />
+					    <Route path='/mock-api' element={<MockmanEs />} />
             </Routes>
           </AuthDialogProvider>
         </ModalProvider>
