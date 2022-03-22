@@ -4,7 +4,7 @@ import ImageSlider from "../../components/ImageSlider";
 import { SliderData } from "../../components/ImageSlider/SliderData";
 import "./home.css";
 import {Link} from 'react-router-dom'
-import ProductCard from "../../components/ProductCard";
+import FeaturedContainer from '../../components/FeaturedContainer'
 const Home = () => {
   return (
     <>

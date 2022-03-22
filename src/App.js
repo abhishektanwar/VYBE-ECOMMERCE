@@ -3,6 +3,7 @@ import Home from "./screens/Home";
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import Header from "./components/Header";
 import Wishlist from "./screens/Wishlist";
+import ProductListing from "./screens/ProductListing"
 function App() {
 	return (
 		<div className="App">
