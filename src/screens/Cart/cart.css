@@ -1,0 +1,51 @@
+.total-ticket-container{
+	background-color: var(--bg-color-primary);
+	color: var(--black-color);
+	height: fit-content;
+	width: 45rem;
+	min-width:40rem;
+	position: sticky;
+	top: 10.4rem;
+}
+
+.card-text-container{
+  width: 40rem;
+  padding:3.2rem 3rem;
+  color: var(--black-color);
+}
+
+.cart-container{
+	column-gap: 3rem;
+}
+
+.border-bottom{
+	border-bottom: 2px solid var(--border-color);
+}
+
+.margin-top-bottom-10{
+	margin: 10px 0;
+}
+
+.total-ticket-container{
+  margin-top: 1.6rem;
+}
+
+.total-ticket-container .ticket-container-item{
+	justify-content: space-between;
+}
+.total-ticket-container .text-container-description{
+	flex-grow: unset;
+	margin-top: unset;
+}
+
+
+@media screen and (max-width:1024px){
+	.total-ticket-container{
+		width: 100vw;
+	}
+
+  .cart-container{
+		display: flex;
+		flex-direction: column;
+	}
+}

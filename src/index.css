@@ -3,7 +3,7 @@ body{
 }
 
 .secondary-button{
-  background-color: white;
+  background-color: unset;
   color: black;
   cursor: pointer;
 }

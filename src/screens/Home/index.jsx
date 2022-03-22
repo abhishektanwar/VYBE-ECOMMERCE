@@ -10,6 +10,7 @@ const Home = () => {
     <>
       <button><Link to="/products" >Products page</Link></button>
       <button><Link to="/wishlist" >Wishlist page</Link></button>
+      <button><Link to="/cart" >Cart page</Link></button>
       
       <ImageSlider sliderData={SliderData} />
       <FeaturedContainer featuredContainerTitle={'Featured Categories'} />
