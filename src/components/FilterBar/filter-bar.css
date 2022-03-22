@@ -1,0 +1,299 @@
+.grid-container-skleton{
+	/* grid-template-rows: 7vh 1fr ; */
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-areas:
+  /* 'header header header header header' */
+	'filter-bar products-listing products-listing products-listing products-listing';	
+	row-gap: 3rem;
+	align-items: flex-start;
+	width: 97vw;
+	overflow: hidden;
+  margin-left:20px;
+  /* margin-right: 100px; */
+  margin-top: 4rem;
+}
+
+
+
+
+/* filter-bar */
+.filter-bar{
+  /* position: fixed; */
+	grid-area: filter-bar;
+	padding:3rem 1.6rem 0 1.6rem;
+	background-color: var(--bg-color-primary);
+	align-self: flex-start;
+}
+
+.filter-bar .link-no-style{
+	text-decoration: underline;
+}
+
+.filter-bar-header{
+	justify-content: space-between;
+}
+
+.products-listing{
+	grid-area: products-listing;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+	margin-left: 14rem;
+	margin-right: 12rem;
+
+}
+
+.checkbox-container{
+  display: block;
+  position: relative;
+  padding-left: 3rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.price-input{
+	/* width: 100%; */
+  width: 300px;
+	display: flex;
+	margin: 3.0rem 0 3.5rem;
+}
+
+.price-input .field{
+	display: flex;
+	width: 100%;
+	height: 4.5rem;
+	align-items: center;
+}
+
+.field input{
+	width: 100%;
+	height: 100%;
+	outline: none;
+	font-size: 1.9rem;
+	margin-left: 12px;
+	border-radius: 5px;
+	text-align: center;
+	border: 1px solid #999;
+	-moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+
+input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+.price-input .separator{
+	/* width: 13rem; */
+	display: flex;
+	font-size: 1.9rem;
+	align-items: center;
+	justify-content: center;
+}
+
+.slider{
+	height: 5px;
+	position: relative;
+	/* background: var(--white-color); */
+	border-radius: 5px;
+}
+
+.slider .progress{
+	height: 100%;
+	left: 25%;
+	right: 25%;
+	position: absolute;
+	border-radius: 5px;
+	background: var(--primary-color);
+}
+
+.range-input{
+	position: relative;
+}
+
+.range-input input{
+	position: absolute;
+	width: 100%;
+	height: 5px;
+	top: -5px;
+	background: none;
+	pointer-events: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+	height: 17px;
+	width: 17px;
+	border-radius: 50%;
+	background: var(--primary-color);
+	pointer-events: auto;
+	-webkit-appearance: none;
+}
+input[type="range"]::-moz-range-thumb{
+	height: 17px;
+	width: 17px;
+	border: none;
+	border-radius: 50%;
+	background: var(--primary-color);
+	pointer-events: auto;
+	-moz-appearance: none;
+}
+
+.checkbox-container {
+	display: block;
+	position: relative;
+	padding-left: 3rem;
+	margin-bottom: 1.5rem;
+	cursor: pointer;
+	font-size: 2rem;
+}
+
+/* Hide the default checkbox */
+input[type=checkbox] {
+	visibility: hidden;
+}
+
+/* Creating a custom checkbox
+based on demand */
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	background-color: var(--white-color);
+	border: 1px solid var(--black-color);
+}
+
+/* Specify the background color to be
+shown when checkbox is checked */
+.checkbox-container input:checked ~ .checkmark {
+	background-color: var(--primary-color);
+}
+
+/* Checkmark to be shown in checkbox */
+/* It is not be shown when not checked */
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Display checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+	display: block;
+}
+
+/* Styling the checkmark using webkit */
+/* Rotated the rectangle by 45 degree and 
+showing only two border to make it look
+like a tickmark */
+.checkbox-container .checkmark:after {
+	left: 6px;
+	bottom: 6px;
+	width: 4px;
+	height: 8px;
+	border: solid var(--white-color);
+	border-width: 0 2px 2px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+/* custom radio btn */
+
+.radio-container{
+	font-size: 20px;
+	margin-bottom: 1rem;
+}
+
+label > input[type="radio"] {
+	display: none;
+}
+
+label > input[type="radio"] + *::before {
+	content: "";
+	display: inline-block;
+	vertical-align: bottom;
+	width: 20px;
+	height: 20px;
+	margin-right: 1rem;
+	border-radius: 50%;
+	border: 1px solid var(--black-color);
+}
+
+label > input[type="radio"]:checked + *::before {
+	background: radial-gradient(var(--primary-color) 0%, var(--primary-color) 40%, transparent 50%, transparent);
+	border-color: var(--primary-color);
+}
+
+.slider::before{
+	display: none;
+}
+
+.sidebar-toggle-button{
+  display: none;
+}
+
+@media screen and (max-width:1024px){
+  .grid-container-skleton{
+		grid-template-columns: 1fr;
+		grid-template-areas: 
+			'filter-bar' 
+			'products-listing';
+		width: 100%;
+		overflow-x: hidden;
+    margin-left: unset;
+	}
+
+  .filter-bar{
+		width: 100vw;
+		box-sizing: border-box;
+		overflow-x: hidden;
+	}
+
+  .products-listing{
+		display: flex;
+		width: 100vw;
+		justify-content: center;
+		align-items: center;
+		margin-left: 0;
+		box-sizing: border-box;
+		flex-direction: column;
+	}
+
+  .filter-bar-header{
+		display: none;
+	}
+
+  .filter-bar-body{
+		display: none;
+	}
+
+  /* .sidebar-active .sidebar-toggle-down-arrow i {
+		transform: rotate(180deg);
+	} */
+
+  .sidebar-toggle-button {
+		cursor: pointer;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		background-color: var(--docSite-sec-color);
+		margin-bottom: 1.6rem;
+	}
+
+  .sidebar-active .filter-bar-body{
+		display: block;
+		position: absolute;
+		top: 20.6rem;
+		height: calc(100vh - 5.6rem);
+		z-index: var(--z-index-3);
+		padding-bottom: 2.4rem;
+		overflow-y: auto;
+		background-color: white;
+		margin-left: -1.4rem;
+		padding-left: 2rem;
+	}
+}

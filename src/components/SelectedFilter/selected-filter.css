@@ -1,0 +1,15 @@
+
+.cancel-filter-button{
+	background-color: #D1D1D1;
+	color: grey;
+	border-radius: 3px;
+	margin-left: 20px;
+}
+
+.selected-filter-container{
+	display: flex;
+	align-items: center;
+	margin-left: 2rem;
+	margin-right: 2rem;
+	border-bottom: 1px solid grey;
+}
