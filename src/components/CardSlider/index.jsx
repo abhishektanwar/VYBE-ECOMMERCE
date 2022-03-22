@@ -7,8 +7,9 @@ const CardSlider = (props) => {
   const {slides} = props;
   const imageUrl='https://picsum.photos/200/300';
   const ref=useRef(null);
-
+  console.log("ref",ref);
   const slideLeft = () =>{
+    console.log("slide",ref);
     ref.current.scrollLeft -= 200;
   }
   const slideRight = () =>{

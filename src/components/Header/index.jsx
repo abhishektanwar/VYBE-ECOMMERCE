@@ -7,8 +7,13 @@ import Logo from "./Logo";
 import SearchBar from "./SearchBar";
 
 const Header = () => {
-  const {showModal,setShowModal} = useContext(AuthDialogContext);
-  // const 
+  const {showModal,setShowModal,authType,setAuthType} = useContext(AuthDialogContext);
+  // const {showModal,setShowModal,authType,setAuthType} = useAuthDialog();
+  console.log(showModal,setShowModal);
+  const handleLoginBtnClick = () => {
+    setShowModal(true);
+    setAuthType('login')
+  }
   return (
     <>
       <Logo />
@@ -30,7 +35,7 @@ const Header = () => {
         <Button
           buttonText={"Login"}
           buttonStyle={"headerButton typo-sm"}
-          onClick={() => setShowModal(true)}
+          onClick={handleLoginBtnClick}
         />
       </div>
     </>

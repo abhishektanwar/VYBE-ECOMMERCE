@@ -6,13 +6,13 @@ import ModalWrapper from "./components/ModalWrapper";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import { AuthDialogProvider } from "./Contexts/AuthDialogContext";
+import Login from "./components/Authentication/Login";
 function App() {
-  const [showModal, setShowModal] = useState(false);
-
   return (
     <div className="App">
       <Router>
         <AuthDialogProvider>
+			{/* <Login /> */}
           <nav className="nav-bar shadow-box" id="my-nav-bar">
             <Header />
           </nav>
