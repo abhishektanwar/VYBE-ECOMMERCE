@@ -5,6 +5,9 @@ import ModalWrapper from "./components/ModalWrapper";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
+import ProductListing from './screens/ProductListing'
+import Wishlist from './screens/Wishlist'
+
 import { AuthDialogProvider } from "./Contexts/AuthDialogContext";
 import Login from "./components/Authentication/Login";
 function App() {
@@ -18,6 +21,8 @@ function App() {
           </nav>
           <Routes>
             <Route path="/" exact element={<Home />} />
+						<Route path="/products" exact element={<ProductListing />} />
+					<Route path="/wishlist" exact element={<Wishlist />} />
           </Routes>
         </AuthDialogProvider>
       </Router>
