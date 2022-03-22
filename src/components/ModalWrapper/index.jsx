@@ -1,6 +1,4 @@
 import React, { useContext, useRef } from "react";
-import { AuthDialogContext } from "../../Contexts/AuthDialogContext";
-import { useAuthDialog } from "../../Contexts/AuthDialogContext/useAuthDialog";
 import { useModal } from "../../Contexts/ModalContext";
 import "./modal-wrapper.css";
 const ModalWrapper = ({ children }) => {

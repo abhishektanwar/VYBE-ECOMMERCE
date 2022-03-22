@@ -9,7 +9,7 @@ import ProductListing from "./screens/ProductListing";
 import Wishlist from "./screens/Wishlist";
 import Cart from "./screens/Cart";
 
-import { AuthDialogProvider } from "./Contexts/AuthDialogContext";
+import { AuthProvider } from "./Contexts/AuthDialogContext";
 import Login from "./components/Authentication/Login";
 import { ModalProvider } from "./Contexts/ModalContext";
 import MockmanEs from 'mockman-js';
@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <Router>
         <ModalProvider>
-          <AuthDialogProvider>
+          <AuthProvider>
             {/* <Login /> */}
             <nav className="nav-bar shadow-box" id="my-nav-bar">
               <Header />
@@ -30,7 +30,7 @@ function App() {
               <Route path="/cart" exact element={<Cart />} />
 					    <Route path='/mock-api' element={<MockmanEs />} />
             </Routes>
-          </AuthDialogProvider>
+          </AuthProvider>
         </ModalProvider>
       </Router>
     </div>

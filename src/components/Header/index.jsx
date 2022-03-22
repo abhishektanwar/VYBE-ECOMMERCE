@@ -1,14 +1,15 @@
 import React, { useContext, useState } from "react";
-import { AuthDialogContext } from "../../Contexts/AuthDialogContext";
+import { useAuth } from "../../Contexts/AuthDialogContext";
 import { useAuthDialog } from "../../Contexts/AuthDialogContext/useAuthDialog";
 import { useModal } from "../../Contexts/ModalContext";
+import utils from "../../utils";
 import BadgeIconButton from "./BadgeIconButton";
 import Button from "./Button";
 import Logo from "./Logo";
 import SearchBar from "./SearchBar";
 
 const Header = () => {
-  const {setAuthType} = useContext(AuthDialogContext);
+  const {setAuthType,logoutHandler,user} = useAuth();
   const {showModal} = useModal()
   const handleLoginBtnClick = () => {
     showModal();
@@ -33,9 +34,9 @@ const Header = () => {
         />
 
         <Button
-          buttonText={"Login"}
+          buttonText={user ? "Logout" : "Login"}
           buttonStyle={"headerButton typo-sm"}
-          onClick={handleLoginBtnClick}
+          onClick={()=> user ? logoutHandler() : handleLoginBtnClick() }
         />
       </div>
     </>
