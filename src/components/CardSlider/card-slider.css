@@ -6,13 +6,13 @@
 
 .card-slider{
   width: 100%;
-  height: max-content;
-  display: flex;
+  /* height: max-content; */
+  /* display: flex; */
   white-space: nowrap;
   overflow-x: scroll;
   scroll-behavior: smooth;
   justify-content: center;
-}
+}nowrapnowrap
 
 .card-slider::-webkit-scrollbar{
   display: none;
@@ -20,8 +20,6 @@
 
 .slider-card{
   min-width: 32rem;
-  height: 28rem;
-  background: wheat;
   border-radius: 10px;
   display: inline-block;
   margin-left: 5px;

@@ -4,8 +4,9 @@ import ProductCard from '../ProductCard';
 import './card-slider.css'
 
 const CardSlider = (props) => {
-  const {slides} = props;
+  const {slides,products} = props;
   const imageUrl='https://picsum.photos/200/300';
+  const featuredProducts = products.filter(product=>product.featured)
   const ref=useRef(null);
   console.log("ref",ref);
   const slideLeft = () =>{
@@ -29,9 +30,10 @@ const CardSlider = (props) => {
         onClick={slideRight}
       />
       <div className="card-slider" ref={ref} >
-        {[1,2,3,4,5,6,7,8].map((slide,index)=>{
+        {featuredProducts.map((product)=>{
           return (
-            <ProductCard imagePath={imageUrl} badgeText={'New Arrival'} title = {'One ear 100 headphones black'} price={1890} actualPrice={2099} discountPercentage={10} />
+            <div className="slider-card">
+            <ProductCard variant="vertical" cartActionBtnContainer={false} product={product} key={product._id} /></div>
           )
         })}
       </div>
