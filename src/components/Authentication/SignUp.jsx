@@ -1,25 +1,69 @@
-import React, { useContext } from "react";
-import { AuthDialogContext } from "../../Contexts/AuthDialogContext";
+import React, { useState } from "react";
+import { useAuth } from "../../Contexts/AuthDialogContext";
+import { useModal } from "../../Contexts/ModalContext";
 import Button from "../Header/Button";
 import InputField from "../InputField";
 import "./authentication.css";
 const SignUp = () => {
-  const { setAuthType } = useContext(AuthDialogContext);
+  const { setAuthType,signUpHandler } = useAuth();
+  const [signUpCredentials, setSignUpCredentials] = useState({
+    name:"",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const {hideModal} = useModal();
+  
+  const isValidEmail = signUpCredentials.email.match(
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  )
+    ? true
+    : false;
+
+  const isValidPassword = signUpCredentials.password && signUpCredentials.confirmPassword && (signUpCredentials.password.length >= 8) && (signUpCredentials.password === signUpCredentials.confirmPassword) ? true : false;
+
+  
+  const handleSignUpCredentialInput = (e) => {
+    console.log([e.target.name], e.target.value);
+    setSignUpCredentials((creds) => ({
+      ...creds,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const signUpUser = async () => {
+    const success = await signUpHandler(signUpCredentials);
+    if(success) hideModal();
+
+  }
+
   return (
     <div class="auth-body">
       <div class="authentication-container flex-column">
         <h3 class="text-bold-weight">Signup</h3>
-        <form action="">
+        <InputField
+            type="text"
+            name="name"
+            labelClass="required-field"
+            id="name"
+            placeholder="Username"
+            labelText="Name"
+            value={signUpCredentials.name}
+            onChange={handleSignUpCredentialInput}
+            required={true}
+            validation={true}
+          />
           <InputField
             type="email"
-            name="password"
+            name="email"
             labelClass="required-field"
-            id="password"
+            id="email"
             placeholder="username@xyz.com"
             labelText="Email Address"
-            value=""
-            onChange={() => {}}
-            required
+            value={signUpCredentials.email}
+            onChange={handleSignUpCredentialInput}
+            required={true}
+            validation={signUpCredentials.email.length === 0 ? true :isValidEmail}
           />
           <InputField
             type="password"
@@ -27,8 +71,10 @@ const SignUp = () => {
             id="password"
             placeholder="Enter password"
             labelText="Password"
-            value=""
-            onChange={() => {}}
+            value={signUpCredentials.password}
+            onChange={handleSignUpCredentialInput}
+            required={true}
+            validation={signUpCredentials.password.length === 0 ? true : isValidPassword}
           />
           <InputField
             type="password"
@@ -36,21 +82,13 @@ const SignUp = () => {
             id="confirmPassword"
             placeholder="Enter password"
             labelText="Confirm Password"
-            value=""
-            onChange={() => {}}
+            value={signUpCredentials.confirmPassword}
+            onChange={handleSignUpCredentialInput}
+            required={true}
+            validation={signUpCredentials.confirmPassword.length === 0 ? true : isValidPassword}
           />
-          <div
-            class="flex-row form-field-container flex-align-item-center"
-            style={{ justifyContent: "space-between" }}
-          >
-            <label class="checkbox-container">
-              I accept all Terms & Conditions
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-            </label>
-          </div>
           <div class="card-action-btn-container flex-column">
-            <Button buttonText="Login" onClick={() => {}} />
+            <Button buttonText="Sign Up" buttonStyle={!(isValidPassword && isValidEmail) ? 'btn-disabled' : '' } onClick={() => signUpUser()} />
             <Button
               buttonText="Already have an account ?"
               buttonStyle="secondary-button"
@@ -58,7 +96,6 @@ const SignUp = () => {
               onClick={() => setAuthType("login")}
             />
           </div>
-        </form>
       </div>
     </div>
   );
