@@ -48,7 +48,6 @@ const ProductListingProvider = ({ children }) => {
           (acc, item) => ({ ...acc, [item.category]: false }),
           {}
         );
-        console.log("categoriesFilterData", categoriesFilterData);
         productListingDispatch({
           type: LOAD_DATA,
           payload: {

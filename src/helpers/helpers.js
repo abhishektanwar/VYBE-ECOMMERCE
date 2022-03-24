@@ -31,7 +31,6 @@ const categoryFilter = (products, categories) => {
   for (let category in categories) {
     if (categories[category]) {
       categoryFilterApplied = true;
-      console.log(categories[category], category);
       let filteredData = products.filter((prod) => category === prod.category);
       newDataList.push(...filteredData);
     }

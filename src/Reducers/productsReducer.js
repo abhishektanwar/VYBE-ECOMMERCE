@@ -46,7 +46,6 @@ export const productsReducer = (state, action) => {
         sortBy: action.type,
       };
     case PRICE_RANGE:
-      console.log("PRICE RANGE");
       if (action.payload.type === "LOWER")
         return {
           ...state,
