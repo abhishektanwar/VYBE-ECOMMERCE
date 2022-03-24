@@ -1,6 +1,26 @@
 import React from "react";
+import { useCart } from "../../Contexts/CartContext";
 
 const TicketContainer = () => {
+  const {cartProducts} = useCart();
+  const sumOfProducts = (productArray, type) => {
+    console.log("suMofPRo",productArray,type)
+    if (type === "discount")
+      return productArray.reduce(
+        (acc, curr) => (acc += (curr.price.old - curr.price.current)  * curr.qty),
+        0
+      );
+    if (type === "price")
+      return productArray.reduce(
+        (acc, curr) => (acc += curr.price.current * curr.qty),
+        0
+      );
+  };
+
+  const priceSum = sumOfProducts(cartProducts, "price");
+	const discountedPriceSum = sumOfProducts(cartProducts, "discount");
+  console.log(priceSum,discountedPriceSum)
+  
   return (
     <div className="total-ticket-container flex-column">
       <div className="card-text-container flex-column ">
@@ -13,10 +33,10 @@ const TicketContainer = () => {
         <div className="text-container-description flex-column border-bottom">
           <div className="flex-row ticket-container-item margin-top-bottom-10">
             <p className="typo-md text-light-weight margin-top-bottom-10">
-              Price (2 items)
+              {`Price (${cartProducts.length} items)`}
             </p>
             <p className="typo-md text-light-weight margin-top-bottom-10">
-              ₹ 4198
+              ₹ {priceSum}
             </p>
           </div>
           <div className="flex-row ticket-container-item margin-top-bottom-10">
@@ -24,7 +44,7 @@ const TicketContainer = () => {
               Discount
             </p>
             <p className="typo-md text-light-weight margin-top-bottom-10">
-              -₹ 418
+              -₹ {discountedPriceSum}
             </p>
           </div>
           <div className="flex-row ticket-container-item margin-top-bottom-10">
@@ -32,7 +52,7 @@ const TicketContainer = () => {
               Delivery charges
             </p>
             <p className="typo-md text-light-weight margin-top-bottom-10">
-              ₹ 499
+              ₹ {parseInt(0.05 * priceSum)}
             </p>
           </div>
         </div>
@@ -41,11 +61,11 @@ const TicketContainer = () => {
             TOTAL AMOUNT
           </p>
           <p className="typo-md text-bold-weight margin-top-bottom-10">
-            ₹ 4279
+            ₹ {priceSum - discountedPriceSum}
           </p>
         </div>
         <p className="typo-sm text-light-weight margin-top-bottom-10">
-          You will save ₹ 418 on this order.
+          You will save ₹ {discountedPriceSum} on this order.
         </p>
         <div className="card-action-btn-container margin-top-16">
           <button className="btn btn-filled-primary text-bold-weight">

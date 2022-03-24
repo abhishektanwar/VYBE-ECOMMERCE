@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const Logo = () => {
   return (
     <div className="nav-logo nav-section-items">
-      <a className="link-no-style" href="/">
+      {/* <Link to="/" className="link-no-style" > */}
+      {/* <a className="link-no-style" href="/"> */}
         <svg
           version="1.0"
           xmlns="https://www.w3.org/2000/svg"
@@ -140,7 +142,8 @@ m127 -34 c20 -16 19 -49 -2 -72 -11 -12 -30 -18 -60 -18 l-43 0 0 56 0 57 45
             />
           </g>
         </svg>
-      </a>
+      {/* </a> */}
+      {/* </Link> */}
     </div>
   );
 };

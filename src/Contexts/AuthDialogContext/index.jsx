@@ -33,7 +33,7 @@ export const AuthProvider = (props) => {
         setIsLoading(false);
         setError({errorExists:false,errorMessage:''})
         setUser(res.data.foundUser)
-
+        console.log("res.data.foundUser",res.data.foundUser)
         return true;
       }
     } catch (e) {
