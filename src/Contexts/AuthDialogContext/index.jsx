@@ -13,8 +13,6 @@ export const AuthContext = createContext({
 });
 
 export const AuthProvider = (props) => {
-  // const [showModal,setShowModal] = useState(false)
-  // const {authType,setAuthType} = useAuthDialog();
   const [authType, setAuthType] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState({ errorExists: false, errorMessage: "" });
@@ -27,7 +25,6 @@ export const AuthProvider = (props) => {
         email: user.email,
         password: user.password,
       });
-      console.log("login requrest resp",res);
       if(res.statusText==='OK'){
         utils.setLocalStorage('authToken',res.data.encodedToken);
         setIsLoading(false);
@@ -45,7 +42,6 @@ export const AuthProvider = (props) => {
   const logoutHandler = () => {
     utils.removeLocalStorage('authToken')
 		setUser(null);
-    console.log("logged out")
   };
   
   const signUpHandler = async (user) => {
@@ -55,7 +51,6 @@ export const AuthProvider = (props) => {
         email: user.email,
         password: user.password,
       })
-      console.log("signup respinse",res);
       if(res.statusText==='Created'){
         setUser(res.data.createdUser)
         utils.setLocalStorage('authToken',res.data.encodedToken);
@@ -73,8 +68,6 @@ export const AuthProvider = (props) => {
   return (
     <AuthContext.Provider value={{ user,authType, setAuthType,loginHandler, signUpHandler,logoutHandler,error }}>
       <ModalWrapper>
-        {user  && user.email}
-        {user && user.password}
         {authType === "login" ? <Login /> : <SignUp />}
       </ModalWrapper>
       {props.children}
