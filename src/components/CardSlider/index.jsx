@@ -4,8 +4,7 @@ import ProductCard from '../ProductCard';
 import './card-slider.css'
 
 const CardSlider = (props) => {
-  const {slides,products} = props;
-  const imageUrl='https://picsum.photos/200/300';
+  const {products} = props;
   const featuredProducts = products.filter(product=>product.featured)
   const ref=useRef(null);
   console.log("ref",ref);

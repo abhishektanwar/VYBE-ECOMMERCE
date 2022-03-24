@@ -207,7 +207,7 @@ export const products = [
     price:{current:3999,old:4999},
     seller:"SIMOND India",
     quantity:3,
-    rating:4.7,
+    rating:3.7,
     featured:true,
     category:"rockclimbingandmountaineering",
     badgeText:{
@@ -261,7 +261,7 @@ export const products = [
     price:{current:3199,old:4499},
     seller:"SIMOND India",
     quantity:2,
-    rating:4.1,
+    rating:1.1,
     featured:true,
     category:"rockclimbingandmountaineering",
     badgeText:{
@@ -334,7 +334,7 @@ export const products = [
     price:{current:12999,old:15499},
     seller:"SUBEA India",
     quantity:1,
-    rating:4.2,
+    rating:2,
     featured:true,
     category:"snorkellingdiving",
     badgeText:{
@@ -352,7 +352,7 @@ export const products = [
     price:{current:4299,old:5499},
     seller:"SUBEA India",
     quantity:2,
-    rating:4.8,
+    rating:2.8,
     featured:false,
     category:"snorkellingdiving",
     badgeText:{
