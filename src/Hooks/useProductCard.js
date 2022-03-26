@@ -16,7 +16,6 @@ function useProductCard(product){
   const addProductToWishlist = async (product) => {
     setAddingToWishlist(true);
     try {
-      // const res = await addToWishlistService(product, auth.token);
       const res = await axios.post(
         "/api/user/wishlist",
         { product },
@@ -29,7 +28,7 @@ function useProductCard(product){
         setWishlistProducts([...res.data.wishlist]);
       }
     } catch (err) {
-      toast.error("Couldn't add to wishlist , try again later!");
+      toast.error("Failed to add product to wishlist. Please try again later!");
     }
   };
 
@@ -47,7 +46,7 @@ function useProductCard(product){
         setWishlistProducts([...res.data.wishlist]);
       }
     } catch (err) {
-      toast.error("Please try again after some time");
+      toast.error("Failed to remove product from wishlist. Please try again later!");
     }
   };
 
@@ -65,7 +64,7 @@ function useProductCard(product){
         setCartProducts([...res.data.cart]);
       }
     } catch (err) {
-      toast.error("Couldn't add to cart , try again later!");
+      toast.error("Failed to remove product from cart. Please try again later!");
     }
   };
 
@@ -84,7 +83,7 @@ function useProductCard(product){
         setCartProducts([...res.data.cart]);
       }
     } catch (err) {
-      toast.error("Couldn't add to cart , try again later!");
+      toast.error("Failed to add product to cart. Please try again later!");
     }
   };
 
@@ -106,7 +105,7 @@ function useProductCard(product){
         setCartProducts([...res.data.cart ]);
       }
     } catch (err) {
-      toast.error("Could not update cart, try again later");
+      toast.error("Failed to update product in cart. Please try again later!");
     }
   };
 
