@@ -44,4 +44,17 @@ const starFilter = (products, rating) => {
   return products.filter((product) => product.rating >= rating);
 };
 
-export {starFilter, categoryFilter, getPricedProducts, getSortedProducts}
+const calculatePriceAndDiscount = (productArray, type) => {
+  if (type === "discount")
+    return productArray.reduce(
+      (acc, curr) => (acc += (curr.price.old - curr.price.current)  * curr.qty),
+      0
+    );
+  if (type === "price")
+    return productArray.reduce(
+      (acc, curr) => (acc += curr.price.current * curr.qty),
+      0
+    );
+};
+
+export {starFilter, categoryFilter, getPricedProducts, getSortedProducts,calculatePriceAndDiscount}

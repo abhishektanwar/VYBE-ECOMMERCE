@@ -1,158 +1,42 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useWishlist } from "../../Contexts/WishlistContext";
-import utils from "../../utils";
 import Button from "../Header/Button";
-import { toast } from "react-toastify";
 import "./product-card.css";
 import { useAuth } from "../../Contexts/AuthDialogContext";
 import { useModal } from "../../Contexts/ModalContext";
-import { useLocation } from "react-router-dom";
 import { useCart } from "../../Contexts/CartContext";
 import { useNavigate } from "react-router-dom";
+import useProductCard from "../../Hooks/useProductCard";
+
 const ProductCard = ({ variant, product, cartActionBtnContainer }) => {
-  const [addingToWishList, setAddingToWishlist] = useState(false);
-  const { wishlistProducts, setWishlistProducts } = useWishlist();
-  const [removingFromWishlist, setRemovingFromWishlist] = useState(false);
+  const { wishlistProducts } = useWishlist();
   const [inWishlist, setInWishlist] = useState(false);
   const [inCart, setInCart] = useState(false);
   const { user, setAuthType } = useAuth();
   const { showModal } = useModal();
-  const [addingToCart, setAddingToCart] = useState(false);
-  const location = useLocation();
-  const { cartProducts, setCartProducts } = useCart();
+  const { cartProducts } = useCart();
   const navigate = useNavigate();
-  console.log("location", location.pathname);
 
+  const {
+    addProductToWishlist,
+    removeProductFromWishlist,
+    removeProductFromCart,
+    addProductToCart,
+    handleProductQuantityInCart,
+  } = useProductCard();
   const handleLogin = () => {
     showModal();
     setAuthType("login");
   };
-  const addToWishlistServerCall = async () => {
-    setAddingToWishlist(true);
-    try {
-      // const res = await addToWishlistService(product, auth.token);
-      const res = await axios.post(
-        "/api/user/wishlist",
-        { product },
-        { headers: { authorization: utils.getLocalStorage("authToken") } }
-      );
-      if (res.status === 201) {
-        console.log(res);
-        toast.success("Added to wishlist");
-        setAddingToWishlist(false);
-        setWishlistProducts([...res.data.wishlist]);
-      }
-    } catch (err) {
-      toast.error("Couldn't add to wishlist , try again later!");
-    }
+
+  const handleMoveToWishlist = (product) => {
+    removeProductFromCart(product);
+    addProductToWishlist(product);
   };
 
-  const removeProductWishlistServerCall = async () => {
-    setRemovingFromWishlist(true);
-    try {
-      const res = await axios.delete(`/api/user/wishlist/${product._id}`, {
-        headers: { authorization: utils.getLocalStorage("authToken") },
-      });
-      console.log("removal ", res);
-      if (res.status === 200) {
-        toast.success("Removed from wishlist");
-        setRemovingFromWishlist(false);
-        console.log(res);
-        setWishlistProducts([...res.data.wishlist]);
-      }
-    } catch (err) {
-      toast.error("Please try again after some time");
-    }
-  };
-  const removeFromCartServerCall = async () => {
-    setAddingToCart(true);
-    try {
-      const res = await axios.delete(`/api/user/cart/${product._id}`, {
-        headers: { authorization: utils.getLocalStorage("authToken") },
-      });
-
-      if (res.status === 200) {
-        toast.success("removed from cart");
-        setAddingToCart(false);
-        // setCart((prev) => ({ ...prev, cartProducts: res.data.cart }));
-        setCartProducts([...res.data.cart]);
-      }
-    } catch (err) {
-      toast.error("Couldn't add to cart , try again later!");
-    }
-  };
-
-  const addToCartServerCall = async () => {
-    setAddingToCart(true);
-    try {
-      const res = await axios.post(
-        "/api/user/cart",
-        { product },
-        { headers: { authorization: utils.getLocalStorage("authToken") } }
-      );
-
-      if (res.status === 201) {
-        toast.success("Added to cart");
-        setAddingToCart(false);
-        // setCart((prev) => ({ ...prev, cartProducts: res.data.cart }));
-        setCartProducts([...res.data.cart]);
-      }
-    } catch (err) {
-      toast.error("Couldn't add to cart , try again later!");
-    }
-  };
-
-  // export const cartCounterService = async (productId, token, type) => {
-  //   return await axios.post(
-  //     `/api/user/cart/${productId}`,
-  //     { action: { type } },
-  //     { headers: { authorization: token } }
-  //   );
-  // };
-
-  // export const removeProductCartService = async (productId, token) => {
-  //   return await axios.delete(`/api/user/cart/${productId}`, {
-  //     headers: { authorization: token },
-  //   });
-  // };
-
-  const cartCounterServerCall = async (operation) => {
-    let res = null;
-    // setUpdatingCart(true);
-
-    try {
-      if (product.qty === 1 && operation === "decrement") {
-        res = await axios.delete(`/api/user/cart/${product._id}`,{headers:{authorization:utils.getLocalStorage('authToken')}});
-      } else {
-        res = await axios.post(`/api/user/cart/${product._id}`,{action:{type:operation}},{headers:{authorization:utils.getLocalStorage('authToken')}});
-      }
-
-      console.log("increment", res.data.cart);
-      if (res.status === 200) {
-        // setUpdatingCart(false);
-        toast.success("Successfully Updated cart");
-        setCartProducts([...res.data.cart ]);
-      }
-    } catch (err) {
-      toast.error("Could not update cart, try again later");
-    }
-  };
-  // const findProduct = (product) => {
-  //   const found = wishlist.wishlistProducts.find(
-  //     (item) => item._id === product._id
-  //   );
-  //   found ? toast.info("Item already in wishlist") : addToWishlistServerCall();
-  // };
-
-  const handleMoveToWishlist = () => {
-    removeFromCartServerCall();
-    addToWishlistServerCall();
-  };
-
-  const handleMoveToCart = () => {
-    removeProductWishlistServerCall();
-    addToCartServerCall();
+  const handleMoveToCart = (product) => {
+    removeProductFromWishlist(product);
+    addProductToCart(product);
   };
 
   useEffect(() => {
@@ -235,27 +119,41 @@ const ProductCard = ({ variant, product, cartActionBtnContainer }) => {
               <div className="cart-action-btn-container">
                 <div class="quantity-container flex-row flex-align-item-center margin-top-12">
                   <p class="body-typo-md text-medium-weight">Qty :</p>
-                  <button className="quantity-btn" onClick={()=>{cartCounterServerCall("decrement")}}>-</button>{" "}
+                  <button
+                    className="quantity-btn"
+                    onClick={() => {
+                      handleProductQuantityInCart(product, "decrement");
+                    }}
+                  >
+                    -
+                  </button>{" "}
                   <input
                     type="number"
                     name="product-quantity"
                     id="product-qyantity"
                     value={product.qty}
-                    style={{width:'3rem'}}
+                    style={{ width: "3rem" }}
                   />
-                  <button class="quantity-btn" onClick={()=>{cartCounterServerCall("increment")}}>+</button>
+                  <button
+                    class="quantity-btn"
+                    onClick={() => {
+                      handleProductQuantityInCart(product, "increment");
+                    }}
+                  >
+                    +
+                  </button>
                 </div>
                 |
                 <Button
                   buttonText={"Delete"}
                   buttonStyle="btn-filled-primary secondary-button body-typo-sm"
-                  onClick={() => removeFromCartServerCall()}
+                  onClick={() => removeProductFromCart(product)}
                 />{" "}
                 |
                 <Button
                   buttonText={"Move to wishlist"}
                   buttonStyle="btn-filled-primary secondary-button body-typo-sm"
-                  onClick={() => handleMoveToWishlist()}
+                  onClick={() => handleMoveToWishlist(product)}
                 />
               </div>
             ) : null}
@@ -272,14 +170,14 @@ const ProductCard = ({ variant, product, cartActionBtnContainer }) => {
                   user
                     ? inCart
                       ? navigate("/cart")
-                      : handleMoveToCart()
+                      : handleMoveToCart(product)
                     : handleLogin()
                 }
               />
               <Button
                 buttonText={"Remove from Wishlist"}
                 buttonStyle="margin-trb-16 btn btn-outline-primary"
-                onClick={() => removeProductWishlistServerCall()}
+                onClick={() => removeProductFromWishlist(product)}
               />
             </div>
           ) : null}
@@ -327,8 +225,8 @@ const ProductCard = ({ variant, product, cartActionBtnContainer }) => {
             onClick={() =>
               user
                 ? inWishlist
-                  ? removeProductWishlistServerCall()
-                  : addToWishlistServerCall()
+                  ? removeProductFromWishlist(product)
+                  : addProductToWishlist(product)
                 : handleLogin()
             }
           >
@@ -347,7 +245,7 @@ const ProductCard = ({ variant, product, cartActionBtnContainer }) => {
                 <span class="typo-strike-through body-typo-sm">
                   Rs.{price.old}
                 </span>
-                <span class="primary-text-color"> {parseInt()}%</span>
+                <span class="primary-text-color"> {parseInt(discount)}%</span>
               </span>
             )}
           </p>
@@ -361,7 +259,7 @@ const ProductCard = ({ variant, product, cartActionBtnContainer }) => {
               user
                 ? inCart
                   ? navigate("/cart")
-                  : addToCartServerCall()
+                  : addProductToCart(product)
                 : handleLogin()
             }
           />

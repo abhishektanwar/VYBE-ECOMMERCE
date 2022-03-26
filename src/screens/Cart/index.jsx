@@ -6,7 +6,6 @@ import { useCart } from "../../Contexts/CartContext";
 import { useNavigate } from 'react-router-dom'
 import "./cart.css";
 const Cart = () => {
-  const imageUrl = "https://picsum.photos/200/300";
   const { cartProducts,isCartLoading,cartError } = useCart();
   const navigate = useNavigate();
 

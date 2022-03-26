@@ -1,24 +1,12 @@
 import React from "react";
 import { useCart } from "../../Contexts/CartContext";
+import { calculatePriceAndDiscount } from "../../helpers/helpers";
 
 const TicketContainer = () => {
   const {cartProducts} = useCart();
-  const sumOfProducts = (productArray, type) => {
-    console.log("suMofPRo",productArray,type)
-    if (type === "discount")
-      return productArray.reduce(
-        (acc, curr) => (acc += (curr.price.old - curr.price.current)  * curr.qty),
-        0
-      );
-    if (type === "price")
-      return productArray.reduce(
-        (acc, curr) => (acc += curr.price.current * curr.qty),
-        0
-      );
-  };
 
-  const priceSum = sumOfProducts(cartProducts, "price");
-	const discountedPriceSum = sumOfProducts(cartProducts, "discount");
+  const priceSum = calculatePriceAndDiscount(cartProducts, "price");
+	const discountedPriceSum = calculatePriceAndDiscount(cartProducts, "discount");
   console.log(priceSum,discountedPriceSum)
   
   return (
