@@ -17,7 +17,6 @@ function App() {
         <ModalProvider>
           <AuthProvider>
             <ProductListingProvider>
-              {/* <Login /> */}
               <nav className="nav-bar shadow-box" id="my-nav-bar">
                 <Header />
               </nav>
