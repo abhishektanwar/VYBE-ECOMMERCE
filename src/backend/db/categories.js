@@ -1,4 +1,5 @@
 import { v4 as uuid } from "uuid";
+import utils from "../../utils";
 
 /**
  * Category Database can be added here.
@@ -8,20 +9,40 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
-    description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+    title: "Hiking and Trekking",
+    img:utils.getImg("Hiking-Trekking","category.webp"),
+    category:"hikingandtrekking"
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
-    description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+    title: "Skiing and Snowboarding",
+    img:utils.getImg("Skiing-Snowboarding","category.webp"),
+    category:"skiingandsnowboarding"
   },
   {
     _id: uuid(),
-    categoryName: "horror",
-    description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+    title: "Rock Climbing and Mountaineering",
+    img:utils.getImg("RockClimbing-Mountaineering","category.webp"),
+    category:"rockclimbingandmountaineering"
   },
+  {
+    _id: uuid(),
+    title: "Swimming",
+    img:utils.getImg("Swimming","category.webp"),
+    category:"swimming"
+    
+  },
+  {
+    _id: uuid(),
+    title: "Snorkelling and Diving",
+    img:utils.getImg("Snorkelling-Diving","category.webp"),
+    category:"snorkellingdiving"
+    
+  },
+  // {
+  //   _id: uuid(),
+  //   categoryName: "Clothing",
+  //   img:utils.getImg("Hiking-Trekking","category","webp")
+    
+  // },
 ];

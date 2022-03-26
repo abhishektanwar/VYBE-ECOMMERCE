@@ -1,6 +1,6 @@
 .featured-container {
   display: grid;
-  grid-template-columns: repeat(6, 200px);
+  grid-template-columns: repeat(5, 320px);
   grid-column-gap: 10px;
   grid-row-gap: 60px;
   justify-content: center;
@@ -12,7 +12,12 @@
 }
 
 @media screen and (max-width: 480px) {
-  .category-container {
+  .featured-container {
     grid-template-columns: repeat(2, 180px);
+    justify-items: unset;
+  }
+  
+  .category-card{
+    margin-top: 3rem;
   }
 }
