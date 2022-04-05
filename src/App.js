@@ -1,9 +1,9 @@
 import "./App.css";
 import Home from "./screens/Home";
-import ModalWrapper from "./components/ModalWrapper";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import ProductListing from "./screens/ProductListing";
+import Page404 from "./screens/Page404";
 import Wishlist from "./screens/Wishlist";
 import Cart from "./screens/Cart";
 import { AuthProvider } from "./Contexts/AuthDialogContext";
@@ -15,6 +15,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { CartProvider } from "./Contexts/CartContext";
 import PrivateRoute from "./components/PrivateRoute";
+
 function App() {
   return (
     <div className="App">
@@ -40,6 +41,7 @@ function App() {
                       <Route path="/cart" exact element={<Cart />} />
                     </Route>
                     <Route path="/mock-api" element={<MockmanEs />} />
+                    <Route path="*" element={<Page404 />} />
                   </Routes>
                 </CartProvider>
               </WishlistProvider>
