@@ -18,7 +18,6 @@ const WishlistProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       if (user) {
-        console.log("found user", user);
         setIsWishlistLoading(true);
         try {
           const res = await axios.get("/api/user/wishlist", {
@@ -36,7 +35,6 @@ const WishlistProvider = ({ children }) => {
           });
         }
       } else {
-        console.log("user not found", user);
         setWishlistProducts([]);
       }
     })();

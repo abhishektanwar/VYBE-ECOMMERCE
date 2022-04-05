@@ -7,9 +7,7 @@ const CardSlider = (props) => {
   const {products} = props;
   const featuredProducts = products.filter(product=>product.featured)
   const ref=useRef(null);
-  console.log("ref",ref);
   const slideLeft = () =>{
-    console.log("slide",ref);
     ref.current.scrollLeft -= 200;
   }
   const slideRight = () =>{

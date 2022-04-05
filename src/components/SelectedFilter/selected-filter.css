@@ -13,3 +13,9 @@
 	margin-right: 2rem;
 	border-bottom: 1px solid grey;
 }
+
+@media screen and (max-width:480px){
+	.selected-filter-container{
+		display: none;
+	}
+}

@@ -54,8 +54,13 @@
 }
 
 .auth-body{
-	height: calc(100vh - 10vh);
+	height: 90vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+@media screen and (max-width:480px) {
+	.auth-body{
+		width: 100%;
+	}
 }

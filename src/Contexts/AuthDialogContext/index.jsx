@@ -39,7 +39,6 @@ export const AuthProvider = (props) => {
           encodedToken: res.data.encodedToken,
         });
         toast.success("Logged in successfully")
-        console.log("res.data.foundUser",res.data.foundUser)
         return true;
       }
     } catch (e) {

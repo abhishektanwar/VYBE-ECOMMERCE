@@ -7,7 +7,6 @@ const TicketContainer = () => {
 
   const priceSum = calculatePriceAndDiscount(cartProducts, "price");
 	const discountedPriceSum = calculatePriceAndDiscount(cartProducts, "discount");
-  console.log(priceSum,discountedPriceSum)
   
   return (
     <div className="total-ticket-container flex-column">

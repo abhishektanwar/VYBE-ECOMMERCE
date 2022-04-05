@@ -55,3 +55,24 @@
 .headerButton{
   margin-left: 10px;
 }
+
+.show-mobile-logo{
+  display: none;
+}
+
+.show-desktop-logo{
+  display: inline-flex;
+}
+
+@media screen and (max-width:480px) {
+  .show-mobile-logo{
+    display: inline-flex;
+    height: 8rem;
+    width: 5rem;
+    margin-left: 2rem;
+  }
+  
+  .show-desktop-logo{
+    display: none;
+  }
+}

@@ -214,6 +214,8 @@ label > input[type="radio"]:checked + *::before {
   display: none;
 }
 
+
+
 @media screen and (max-width:1024px){
   .filter-bar{
 		width: 100vw;
@@ -259,5 +261,9 @@ label > input[type="radio"]:checked + *::before {
 		background-color: white;
 		margin-left: -1.4rem;
 		padding-left: 2rem;
+	}
+
+	.show-filter-bar{
+		display: inline-flex;
 	}
 }

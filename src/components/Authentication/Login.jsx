@@ -24,7 +24,6 @@ const Login = () => {
       : false;
 
   const handleLoginCredentialInput = (e) => {
-    console.log([e.target.name], e.target.value);
     setLoginCredentials((creds) => ({
       ...creds,
       [e.target.name]: e.target.value,

@@ -43,7 +43,6 @@ const ProductCard = ({ variant, product, cartActionBtnContainer }) => {
     cartProducts.find((item) => item._id === product._id)
       ? setInCart(true)
       : setInCart(false);
-    console.log("wishlistProducts", wishlistProducts);
     wishlistProducts.find((item) => item._id === product._id)
       ? setInWishlist(true)
       : setInWishlist(false);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useProductListing } from "../../Contexts/ProductListingContext";
 import { dispatchActionTypes } from "../../Reducers/dispatchActionTypes";
 import "./filter-bar.css";
@@ -8,15 +8,24 @@ const FilterBar = () => {
   const { sortBy, priceRange, rating, categories } = productListingState;
   const { LOW_TO_HIGH, HIGH_TO_LOW, PRICE_RANGE, CATEGORY, RATING, CLEAR } =
     dispatchActionTypes;
+  const [showFilterBar, setShowFilterBar] = useState(false);
   return (
-    <div className="filter-bar flex-column" id="filter-side-bar">
+    <div
+      className="filter-bar flex-column"
+      id="filter-side-bar"
+      onClick={() => setShowFilterBar((prev) => !prev)}
+    >
       <div className="sidebar-toggle-button">
         <h2 className="typo-sm sidebar-title typo-lg">FILTERS</h2>
         <span className="sidebar-toggle-down-arrow">
           <i className="typo-sm fas fa-chevron-down"></i>
         </span>
       </div>
-      <div className="flex-row flex-align-item-center filter-bar-header">
+      <div
+        className={`flex-row flex-align-item-center filter-bar-header ${
+          showFilterBar ? "show-filter-bar" : ""
+        }`}
+      >
         <h3 className="text-bold-weight">Filters</h3>
         <button
           className="link-no-style"
@@ -30,7 +39,9 @@ const FilterBar = () => {
         </button>
       </div>
       <div
-        className="filter-bar-body flex-column sidebar-active"
+        className={`filter-bar-body flex-column sidebar-active ${
+          showFilterBar ? "show-filter-bar" : ""
+        }`}
         id="filter-bar-bodya"
       >
         <div className="filter-type">

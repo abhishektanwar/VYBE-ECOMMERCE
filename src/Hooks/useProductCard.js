@@ -22,7 +22,6 @@ function useProductCard(product){
         { headers: { authorization: utils.getLocalStorage("authToken") } }
       );
       if (res.status === 201) {
-        console.log(res);
         toast.success("Added to wishlist");
         setAddingToWishlist(false);
         setWishlistProducts([...res.data.wishlist]);
@@ -38,11 +37,9 @@ function useProductCard(product){
       const res = await axios.delete(`/api/user/wishlist/${product._id}`, {
         headers: { authorization: utils.getLocalStorage("authToken") },
       });
-      console.log("removal ", res);
       if (res.status === 200) {
         toast.success("Removed from wishlist");
         setRemovingFromWishlist(false);
-        console.log(res);
         setWishlistProducts([...res.data.wishlist]);
       }
     } catch (err) {
@@ -98,7 +95,6 @@ function useProductCard(product){
         res = await axios.post(`/api/user/cart/${product._id}`,{action:{type:operation}},{headers:{authorization:utils.getLocalStorage('authToken')}});
       }
 
-      console.log("increment", res.data.cart);
       if (res.status === 200) {
         // setUpdatingCart(false);
         toast.success("Successfully Updated cart");
