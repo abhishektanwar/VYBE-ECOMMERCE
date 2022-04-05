@@ -14,6 +14,7 @@ import { WishlistProvider } from "./Contexts/WishlistContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { CartProvider } from "./Contexts/CartContext";
+import PrivateRoute from "./components/PrivateRoute";
 function App() {
   return (
     <div className="App">
@@ -34,8 +35,10 @@ function App() {
                       exact
                       element={<ProductListing />}
                     />
-                    <Route path="/wishlist" exact element={<Wishlist />} />
-                    <Route path="/cart" exact element={<Cart />} />
+                    <Route element={<PrivateRoute />}>
+                      <Route path="/wishlist" exact element={<Wishlist />} />
+                      <Route path="/cart" exact element={<Cart />} />
+                    </Route>
                     <Route path="/mock-api" element={<MockmanEs />} />
                   </Routes>
                 </CartProvider>
