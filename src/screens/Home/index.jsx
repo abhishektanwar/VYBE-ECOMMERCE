@@ -2,14 +2,15 @@ import React from "react";
 import CardSlider from "../../components/CardSlider";
 import ImageSlider from "../../components/ImageSlider";
 import { SliderData } from "../../components/ImageSlider/SliderData";
-import "./home.css";
-import { Link } from "react-router-dom";
 import FeaturedContainer from "../../components/FeaturedContainer";
 import { useProductListing } from "../../Contexts/ProductListingContext";
+import { useDocumentTitle } from "../../helpers/helpers";
+import "./home.css";
 
 const Home = () => {
   const { productListingState } = useProductListing();
   const { categoriesData, products } = productListingState;
+  useDocumentTitle("Trek Shark | Home");
   return (
     <>
       <ImageSlider sliderData={SliderData} />

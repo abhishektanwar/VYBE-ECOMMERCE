@@ -3,14 +3,16 @@ import PageHeroHeader from "../../components/PageHeroHeader";
 import ProductCard from "../../components/ProductCard";
 import { useWishlist } from "../../Contexts/WishlistContext";
 import {useNavigate} from 'react-router-dom'
-import "./wishlist.css";
 import Button from "../../components/Header/Button";
+import { useDocumentTitle } from '../../helpers/helpers'
+import "./wishlist.css";
+
 const Wishlist = () => {
   const { wishlistProducts, isWishlistLoading, wishlistError } = useWishlist();
   const navigate = useNavigate();
+  useDocumentTitle("Trek Shark | Wishlist")
   return (
     <div>
-      {/* <PageHeroHeader title={"Your wishlist"} /> */}
       {isWishlistLoading && <h1 className="margin-top-60">Loading...</h1>}
         {wishlistError.errorExists && (
           <h1 className="invalid-field-color margin-top-60">
@@ -32,7 +34,7 @@ const Wishlist = () => {
         })}
       </section> : 
       <div className="flex-column flex-align-item-center flex-justify-content-center margin-top-60">
-      <h2>Your cart is empty!</h2>
+      <h2>Your wishlist is empty!</h2>
       <Button buttonText="Start Shopping" onClick={()=>navigate('/products')}></Button>
     </div>}
     </div>

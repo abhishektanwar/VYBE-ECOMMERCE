@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 const getSortedProducts = (products, sortBy) => {
   if (sortBy === "LOW_TO_HIGH")
     return [...products].sort(
@@ -38,7 +40,6 @@ const categoryFilter = (products, categories) => {
   return categoryFilterApplied ? newDataList : products;
 };
 
-
 const starFilter = (products, rating) => {
   if (rating === -1) return products;
   return products.filter((product) => product.rating >= rating);
@@ -47,7 +48,7 @@ const starFilter = (products, rating) => {
 const calculatePriceAndDiscount = (productArray, type) => {
   if (type === "discount")
     return productArray.reduce(
-      (acc, curr) => (acc += (curr.price.old - curr.price.current)  * curr.qty),
+      (acc, curr) => (acc += (curr.price.old - curr.price.current) * curr.qty),
       0
     );
   if (type === "price")
@@ -57,4 +58,20 @@ const calculatePriceAndDiscount = (productArray, type) => {
     );
 };
 
-export {starFilter, categoryFilter, getPricedProducts, getSortedProducts,calculatePriceAndDiscount}
+const useDocumentTitle = (title) => {
+  const [documentTitle, setDocumentTitle] = useState(title);
+  useEffect(() => {
+    document.title = documentTitle;
+  }, [documentTitle]);
+
+  return [documentTitle, setDocumentTitle];
+};
+
+export {
+  starFilter,
+  categoryFilter,
+  getPricedProducts,
+  getSortedProducts,
+  calculatePriceAndDiscount,
+  useDocumentTitle,
+};
