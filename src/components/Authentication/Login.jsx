@@ -75,9 +75,15 @@ const Login = () => {
           <Button buttonText="Login" onClick={() => loginUser()} />
           <Button
             buttonText="Create new account"
-            buttonStyle="secondary-button"
+            buttonStyle="secondary-button margin-top-0"
             // icon="fas fa-chevron-right"
             onClick={() => setAuthType("signup")}
+          />
+          <Button
+            buttonText="Login with test credenials"
+            buttonStyle="secondary-button body-typo-md margin-top-0"
+            // icon="fas fa-chevron-right"
+            onClick={() => setLoginCredentials({email:"adarshbalika@gmail.com",password:"adarshBalika123"})}
           />
         </div>
       </div>

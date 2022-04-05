@@ -91,6 +91,17 @@
     opacity: 0.9;
 }
 
+.quantity-btn{
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  border-color: unset;
+  border: 1px solid var(--secondary-border-color);
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
 @media screen and (max-width:480px){
   .horizontal-card-text-container{
     display: flex;
