@@ -65,6 +65,7 @@ const Login = () => {
           validation={
             loginCredentials.password.length === 0 ? true : isValidPassword
           }
+          showTogglePasswordButton = {true}
         />
         <div class="card-action-btn-container flex-column">
           {error.errorExists && (
