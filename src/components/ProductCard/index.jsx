@@ -167,7 +167,7 @@ const ProductCard = ({ variant, product, cartActionBtnContainer }) => {
                 buttonText={inCart ? "Go to cart" : "Add to Cart"}
                 buttonStyle="margin-trb-16 btn btn-filled-primary"
                 onClick={() =>
-                  user
+                  user.isAuthenticated
                     ? inCart
                       ? navigate("/cart")
                       : handleMoveToCart(product)
@@ -223,7 +223,7 @@ const ProductCard = ({ variant, product, cartActionBtnContainer }) => {
           <button
             class="favorite-btn"
             onClick={() =>
-              user
+              user.isAuthenticated
                 ? inWishlist
                   ? removeProductFromWishlist(product)
                   : addProductToWishlist(product)
@@ -256,7 +256,7 @@ const ProductCard = ({ variant, product, cartActionBtnContainer }) => {
             buttonText={inCart ? "Go to Cart" : "Add to Cart"}
             buttonStyle="margin-trb-16 btn btn-filled-primary width-100"
             onClick={() =>
-              user
+              user.isAuthenticated
                 ? inCart
                   ? navigate("/cart")
                   : addProductToCart(product)

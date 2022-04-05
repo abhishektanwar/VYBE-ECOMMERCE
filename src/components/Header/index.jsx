@@ -34,20 +34,20 @@ const Header = () => {
           badgeIconButtonWrapper={"badge-icon-button-wrapper"}
           badgeNumber={wishlistProducts.length}
           icon={"far fa-heart"}
-          onClick={()=> user ? navigate('/wishlist') : handleLoginBtnClick()}
+          onClick={()=> user.isAuthenticated ? navigate('/wishlist') : handleLoginBtnClick()}
         />
 
         <BadgeIconButton
           badgeIconButtonWrapper={"badge-icon-button-wrapper"}
           badgeNumber={cartProducts.length}
           icon={"fas fa-shopping-cart badge-icon-class"}
-          onClick={()=> user ? navigate('/cart') : handleLoginBtnClick()}
+          onClick={()=> user.isAuthenticated ? navigate('/cart') : handleLoginBtnClick()}
         />
 
         <Button
-          buttonText={user ? "Logout" : "Login"}
+          buttonText={user.isAuthenticated ? "Logout" : "Login"}
           buttonStyle={"headerButton typo-sm"}
-          onClick={() => (user ? logoutHandler() : handleLoginBtnClick())}
+          onClick={() => (user.isAuthenticated ? logoutHandler() : handleLoginBtnClick())}
         />
       </div>
     </>

@@ -55,7 +55,6 @@ export const AuthProvider = (props) => {
       isAuthenticated: false,
       encodedToken: "",
     });
-		setUser(null);
   };
   
   const signUpHandler = async (user) => {
