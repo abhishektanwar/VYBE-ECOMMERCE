@@ -34,6 +34,8 @@ Below listed are the links for different pages in Trek Shark.
 
 ## Features
 
+- Mobile and desktop responsive screens
+
 >### P0
 
 - Search products by clicking on category card on home page.
