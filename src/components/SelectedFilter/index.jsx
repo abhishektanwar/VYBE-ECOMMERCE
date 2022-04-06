@@ -13,7 +13,7 @@ const SelectedFilter = () => {
       {sortBy !== "" ? (
         <Button
           icon="fas fa-times"
-          buttonText={"Colors"}
+          buttonText={"Sort by"}
           buttonStyle="btn-filled-primary cancel-filter-button"
           onClick={() =>
             productListingDispatch({
@@ -52,7 +52,7 @@ const SelectedFilter = () => {
       {categories.skiingandsnowboarding ? (
         <Button
           icon="fas fa-times"
-          buttonText={"Hiking and Trekking"}
+          buttonText={"Skiing and Snowboarding"}
           buttonStyle="btn-filled-primary cancel-filter-button"
           onClick={() =>
             productListingDispatch({
