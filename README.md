@@ -16,7 +16,10 @@
 
 ---
 
-## Video Demo : [Trek Shark](https://trekshark.netlify.app/)
+## Video Demo : 
+
+https://user-images.githubusercontent.com/40486188/161935784-c8a430a2-e706-4ce7-84bb-d6106a6340b3.mp4
+
 
 ---
 
