@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+## Trek Shark : One shop for all your adventure sports and activities
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+  <img alt="trekshark_logo" src="./src/assets/images/logo/logo.svg" height="110px" width="160px" />
+  <h3>Trek Shark is an e-commerce website built with React which offers products related to adventure sports and activities.</h3>
 
-## Available Scripts
+[![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/abhi__tanwar.svg?style=social&label=Follow%20%40abhi__tanwar)](https://twitter.com/abhi__tanwar)
+&emsp;
+[![LinkedIn URL](https://img.shields.io/badge/LinkedIn-0077B5?style=social&logo=linkedin&logoColor=blue&label=Follow%20%40abhishek)](https://www.linkedin.com/in/abhishek-tanwar-954a6b169/)
 
-In the project directory, you can run:
+</div>
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Live Website : [Trek Shark](https://trekshark.netlify.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Video Demo : [Trek Shark](https://trekshark.netlify.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Quick Start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Below listed are the links for different pages in Trek Shark.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Home Page](https://trekshark.netlify.app/)
+- [Products Listing Page](https://trekshark.netlify.app/products)
+- [Wishlish Page](https://trekshark.netlify.app/wishlist)
+- [Cart Page](https://trekshark.netlify.app/cart)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features
 
-### `npm run eject`
+>### P0
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Search products by clicking on category card on home page.
+- Filter products using Category, Price, Rating on products listing page.
+- A button to clear all the applied filters.
+- Add product to cart from product card.
+- Add product to wishlist from product card.
+- Move product in cart to wishlist and vice versa.
+- Increase / Decrease product quantity on cart checkout page.
+- SignUp and Login modal
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+>### P1
+- Alerts on success and failed actions.
